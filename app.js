@@ -20,6 +20,9 @@ const swaggerDocument = YAML.load('api-docs/openapi.yaml');
 
 const app = express();
 
+
+app.set('trust proxy', 1);
+
 // Security Middleware
 app.use(helmet());
 app.use(cors());
