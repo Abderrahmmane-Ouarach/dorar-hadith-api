@@ -4,6 +4,7 @@ const app = require('./app');
 const config = require('./config/config');
 
 const port = process.env.PORT || config.port;
+const fetch = (...args) => import('node-fetch').then(({default: f}) => f(...args));
 
 // Server
 const server = app.listen(port, () =>
