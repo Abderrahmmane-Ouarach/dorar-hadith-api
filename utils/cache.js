@@ -1,3 +1,8 @@
 const NodeCache = require('node-cache');
 const config = require('../config/config');
-module.exports = new NodeCache({ stdTTL: config.cacheEach }); // cache for 5 seconds
+const cache = new NodeCache({ stdTTL: 3600 }); // cache 1h
+module.exports = cache;
+
+ // cache for 5 seconds
+
+
