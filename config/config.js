@@ -14,7 +14,7 @@ module.exports = config = {
    * @description max number of requests
    * @default 100
    */
-  rateLimitMax: toNumber(process.env.RATE_LIMIT_MAX, 100),
+  rateLimitMax: toNumber(process.env.RATE_LIMIT_MAX, 10000),
 
   /** @type {number}
    * @description time between requests
