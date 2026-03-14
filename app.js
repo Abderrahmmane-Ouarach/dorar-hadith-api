@@ -35,6 +35,8 @@ app.use(
     windowMs: config.rateLimitEach,
     max: config.rateLimitMax,
     message: 'Rate limit exceeded. Please try again later.',
+    // ADD THIS — rate limit per real user IP, not per server IP
+    keyGenerator: (req) => req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.ip,
     handler: (req, res, next, option) => {
       next(new AppError(option.message, 429));
     },
